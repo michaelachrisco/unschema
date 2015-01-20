@@ -38,7 +38,8 @@ module Unschema
     end
 
     def table_name_camelcased
-      @table_name.gsub(/^(\w)/){|s| s.upcase }.gsub(/(_\w)/) { |s| s[-1, 1].upcase }
+      table = @table_name.gsub(/^(\w)/){|s| s.upcase }.gsub(/(_\w)/) { |s| s[-1, 1].upcase }
+      table.to_sym
     end
 
     def stringify_call(call)
